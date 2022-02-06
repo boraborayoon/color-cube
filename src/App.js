@@ -29,7 +29,7 @@ function App() {
   return (
     <div className='App'>
       스테이지: <span id='stage'>{stage}</span>, 남은시간: <Timer stage={stage} score={score} initial={second}/>, 점수: {score}
-      <Squares stage={stage} stageHandler={stageHandler} setCorrect={setCorrect} scoreHandler={scoreHandler} secondHandler={secondHandler}/>
+      <Squares stage={stage} stageHandler={stageHandler} scoreHandler={scoreHandler} secondHandler={secondHandler}/>
     </div>
   )
 }
