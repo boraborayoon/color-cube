@@ -5,7 +5,6 @@ import Timer from './components/Timer';
 
 function App() {
   const [stage, setStage] = useState(1);
-  const [correct, setCorrect] = useState('');
   const [score, setScore] = useState(0);
   const [second, setSecond] = useState(15);
 
@@ -25,12 +24,12 @@ function App() {
 
   useEffect(()=>{
     secondHandler()
-  },[stage,correct,score])
+  },[stage,score])
 
   return (
     <div className='App'>
       스테이지: <span id='stage'>{stage}</span>, 남은시간: <Timer stage={stage} score={score} initial={second}/>, 점수: {score}
-      <Squares stage={stage} stageHandler={stageHandler} setCorrect={setCorrect} scoreHandler={scoreHandler} secondHandler={secondHandler} Timer={Timer}/>
+      <Squares stage={stage} stageHandler={stageHandler} scoreHandler={scoreHandler} secondHandler={secondHandler} Timer={Timer}/>
     </div>
   )
 }
