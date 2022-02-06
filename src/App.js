@@ -5,7 +5,6 @@ import Timer from './components/Timer';
 
 function App() {
   const [stage, setStage] = useState(1);
-  const [correct, setCorrect] = useState('');
   const [score, setScore] = useState(0);
   const [second, setSecond] = useState(15);
 
@@ -25,7 +24,7 @@ function App() {
 
   useEffect(()=>{
     secondHandler()
-  },[stage,correct,score])
+  },[stage,score])
 
   return (
     <div className='App'>

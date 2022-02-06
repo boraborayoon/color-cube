@@ -18,7 +18,9 @@ function randomNum(min,max){
     return Math.floor(Math.random()*(max-min+1))+ min;
 }
 
+
 export default function Squares({stage, stageHandler,setCorrect, scoreHandler, secondHandler}){
+
     let toShow=[];
     const currentStage=stage;
 
@@ -37,7 +39,6 @@ export default function Squares({stage, stageHandler,setCorrect, scoreHandler, s
     const differentColor = `rgb(${differentSqaure[0]}, ${differentSqaure[1]}, ${differentSqaure[2]},${(1- 1/stage)})`;
     
     const spotHandler =()=>{
-        setCorrect(true)
         stageHandler(currentStage+1)
         scoreHandler(document.getElementById('leftsecond').textContent,currentStage)
         secondHandler()
