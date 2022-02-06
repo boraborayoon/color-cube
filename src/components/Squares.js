@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import React from 'react';
 
 
 const SquareContainer = styled.div`
@@ -17,7 +18,7 @@ function randomNum(min,max){
     return Math.floor(Math.random()*(max-min+1))+ min;
 }
 
-export default function Squares({stage, stageHandler,setCorrect, scoreHandler, secondHandler, Timer}){
+export default function Squares({stage, stageHandler,setCorrect, scoreHandler, secondHandler}){
     let toShow=[];
     const currentStage=stage;
 
@@ -40,7 +41,6 @@ export default function Squares({stage, stageHandler,setCorrect, scoreHandler, s
         stageHandler(currentStage+1)
         scoreHandler(document.getElementById('leftsecond').textContent,currentStage)
         secondHandler()
-        Timer()
     }
 
     return (<SquareContainer>
