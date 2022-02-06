@@ -1,10 +1,9 @@
 import styled from 'styled-components';
-import Timer from './Timer';
+
 
 const SquareContainer = styled.div`
 display: flex;
 flex-wrap : wrap;
-// border: 1px solid red;
 justify-content: space-around;
 width: 390px;
 height: 390px;
@@ -18,13 +17,13 @@ function randomNum(min,max){
     return Math.floor(Math.random()*(max-min+1))+ min;
 }
 
-export default function Squares({stage, stageHandler,setCorrect}){
-    let toShows=[];
-    const currentStage=stage || 7;
+export default function Squares({stage, stageHandler,setCorrect, scoreHandler, secondHandler, Timer}){
+    let toShow=[];
+    const currentStage=stage;
 
     const squares = Math.pow(Math.round((currentStage + 0.5) / 2) + 1, 2)
     for(let i=0;i<squares;i++){
-        toShows.push([i]);
+        toShow.push([i]);
     }
     const width = Math.floor(370 / squares ** 0.5) + 'px';
 
@@ -39,10 +38,13 @@ export default function Squares({stage, stageHandler,setCorrect}){
     const spotHandler =()=>{
         setCorrect(true)
         stageHandler(currentStage+1)
+        scoreHandler(document.getElementById('leftsecond').textContent,currentStage)
+        secondHandler()
+        Timer()
     }
 
     return (<SquareContainer>
-        {toShows.map((item,idx)=>  (
+        {toShow.map((item,idx)=>  (
             <>
             {idx !== differentIdx? 
         <SquareRow key={idx} style={{backgroundColor: `${normalColor}`, width:`${width}`, height:`${width}`}}></SquareRow> 
